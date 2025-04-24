@@ -1,6 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const User = require('../models/User'); // Correct file name is 'User.js'
 const AccessLog = require('../models/Accesslog');
 const RestrictedCountry = require('../models/RestrictedCountry');
 const getIPDetails = require('../utils/getIPDetails');
