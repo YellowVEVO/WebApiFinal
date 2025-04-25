@@ -1,5 +1,5 @@
 const express = require('express');
-const Book = require('../models/Book');
+const Book = require('../models/Books');
 const verifyToken = require('../utils/verifyToken');
 
 const router = express.Router();
