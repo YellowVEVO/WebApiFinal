@@ -42,7 +42,7 @@
         const data = await response.json();
         const msgEl = document.getElementById('message');
         if (response.ok) {
-          msgEl.textContent = 'Registration successful! You can now log in.';
+          window.location.href = 'login.html';
         } else {
           msgEl.textContent = data.message;
         }
