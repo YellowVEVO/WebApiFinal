@@ -16,6 +16,9 @@
     if (response.ok) {
       msgEl.textContent = 'Login successful!';
       localStorage.setItem('token', data.token);
+
+      // Redirect to another page (e.g., dashboard.html)
+      window.location.href = 'dashboard.html';
     } else {
       msgEl.textContent = data.message;
     }

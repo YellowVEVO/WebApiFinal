@@ -5,12 +5,12 @@ const verifyToken = require('../utils/verifyToken');
 const router = express.Router();
 
 // Get all books
-router.get('/', verifyToken, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const books = await Book.find();
     res.json(books);
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Error fetching books' });
   }
 });
 

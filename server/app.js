@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
+const booksRoutes = require('./routes/books');
 
 const app = express();
 app.use(express.json());
@@ -15,5 +16,6 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/books', booksRoutes);
 
 app.listen(5000, () => console.log('Server running on port 5000'));
