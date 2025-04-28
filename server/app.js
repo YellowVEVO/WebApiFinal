@@ -1,5 +1,6 @@
 require('dotenv').config({ path: './server/.env' });
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
@@ -17,5 +18,14 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/books', booksRoutes);
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'client')));
+
+// Example: Serve login.js
+app.get('/login.js', (req, res) => {
+  res.type('application/javascript');
+  res.sendFile(path.join(__dirname, 'client', 'login.js'));
+});
 
 app.listen(5000, () => console.log('Server running on port 3000'));
