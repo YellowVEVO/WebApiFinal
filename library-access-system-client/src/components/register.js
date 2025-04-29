@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { API_URL } from '../config'; // Import API_URL from config.js
 
 function Register() {
@@ -6,6 +7,7 @@ function Register() {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('user');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +21,8 @@ function Register() {
 
       const data = await response.json();
       if (response.ok) {
-        setMessage('Registration successful! You can now log in.');
+        setMessage('Registration successful! Redirecting to login...');
+        setTimeout(() => navigate('/'), 2000); // Redirect to login after 2 seconds
       } else {
         setMessage(data.message || 'Registration failed!');
       }
