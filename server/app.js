@@ -2,12 +2,14 @@ require('dotenv').config({ path: './server/.env' });
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const booksRoutes = require('./routes/books');
 
 const app = express();
 app.use(express.json());
+app.use(cors({ origin: '*' })); // Replace '*' with your frontend URL for better security
 
 console.log('MONGODB_URI:', process.env.MONGODB_URI);
 
