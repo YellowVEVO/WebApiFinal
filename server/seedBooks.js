@@ -1,6 +1,6 @@
 require('dotenv').config({ path: './server/.env' });
 const mongoose = require('mongoose');
-const Book = require('./models/Book'); // Correct file name
+const Book = require('./models/Books'); // Correct file name
 
 const books = [
   { title: "1984", author: "George Orwell", genre: "Dystopian", available: true },
