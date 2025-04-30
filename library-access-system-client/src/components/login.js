@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { API_URL } from '../config'; // Import API_URL from config.js
+import API_URL from '../config'; // Correct import
 
 function Login() {
   const [username, setUsername] = useState('');

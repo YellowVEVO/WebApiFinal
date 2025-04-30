@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { API_URL } from '../config'; // Import API_URL from config.js
+import { useNavigate } from 'react-router-dom';
+import API_URL from '../config'; // Correct import
 
 function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('user');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ function Register() {
       const data = await response.json();
       if (response.ok) {
         setMessage('Registration successful! Redirecting to login...');
-        setTimeout(() => navigate('/'), 2000); // Redirect to login after 2 seconds
+        setTimeout(() => navigate('/'), 2000);
       } else {
         setMessage(data.message || 'Registration failed!');
       }
