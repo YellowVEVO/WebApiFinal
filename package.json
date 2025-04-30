@@ -5,6 +5,7 @@
   "main": "server/app.js",
   "scripts": {
     "start": "node server/app.js",
+    "postinstall": "npm install",
     "seed:users": "node server/seedUsers.js",
     "seed:countries": "node server/seedCountries.js",
     "seed:books": "node server/seedBooks.js"
