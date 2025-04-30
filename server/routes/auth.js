@@ -14,17 +14,21 @@ router.post('/register', async (req, res) => {
   const { username, password, role } = req.body;
 
   try {
+    console.log('Register request body:', req.body); // Log the request body
     const existingUser = await User.findOne({ username });
+    console.log('Existing user:', existingUser); // Log if the user already exists
+
     if (existingUser) {
       return res.status(400).json({ message: 'Username already exists' });
     }
 
     const newUser = new User({ username, password, role: role || 'member' });
-    await newUser.save();
+    const savedUser = await newUser.save();
+    console.log('Saved user:', savedUser); // Log the saved user
 
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
-    console.error('Register error:', error.message, error.stack);
+    console.error('Register error:', error.message, error.stack); // Log the error
     res.status(500).json({ message: 'Server error' });
   }
 });
